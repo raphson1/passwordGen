@@ -30,31 +30,31 @@ function generatePassword(){
    if (isValidLengh(passwordcriteria["len"])=== false){
      alert("Please Enter a number between 8 and 128")
      return "";
-   }
 
+   }
     passwordcriteria["upper"]= confirm("Do you want an upper case in your password?");    
     passwordcriteria["lower"]= confirm("Do you want a lower case in Your password");
     passwordcriteria["number"] = confirm("Do you want a number in your password");
     passwordcriteria["special"] = confirm("Do you want a special caracter in your password?");
 
     if (!passwordcriteria["upper"] && !passwordcriteria["lower"] && !passwordcriteria["number"] && !passwordcriteria["special"]){
-      alert("Please select atleast one type of caracter")
+      alert("Please select atleast one type of Character")
       return "";
+
     }
 
     return createPassword(passwordcriteria);  
     
 }
 
-
 function getRandom(n){
   return Math.floor(Math.random() * n);
 }
 
+
 function createPassword(passwordOptions){
   var password = Array(Number(passwordOptions["len"]));
   var index = 0;
-
   if (passwordOptions["upper"]=== true){
     var letter = getRandom(26)
     password[index] = String.fromCharCode("A".charCodeAt(0) +letter);
@@ -72,7 +72,6 @@ function createPassword(passwordOptions){
     password[index] = number;
     index++
   }
-  
   var specialCharacters = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
   if (passwordOptions["special"] === true){
     var special = specialCharacters[getRandom(specialCharacters.length)];
